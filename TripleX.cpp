@@ -2,7 +2,7 @@
 
 void PrintIntroduction(int Difficulty)
 {
-    std::cout << " _                       _                     _            \n";
+    std::cout << "\n _                       _                     _            \n";
     std::cout << "(_)                     | |                   | |           \n";
     std::cout << " _  _ __   _ __   _   _ | |_    ___  ___    __| |  ___  ___ \n";
     std::cout << "| || '_ \\ | '_ \\ | | | || __|  / __|/ _ \\  / _` | / _ \\/ __|\n";
@@ -48,20 +48,18 @@ bool PlayGame(int Difficulty)
     //TODO replace string with a variable
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
-        std::cout << "You win";
+        std::cout << "*** Well done agent! Keep going...";
         return true;
     }
     else
     {
-        std::cout << "You lose";
+        std::cout << "*** You entered the wrong code ! Be careful! Try again...";
         return false;
     }
-    
-
 }
 int main()
 {
-    int MaxLevel = 10;
+    int const MaxLevel = 5;
     int LevelDifficulty = 1;
     while (LevelDifficulty <= MaxLevel)
     {
@@ -75,5 +73,6 @@ int main()
             ++LevelDifficulty;
         }
     }
+    std::cout << "\n*** Great work agent! Now get the fuck out of there! ***";
     return 0;
 }
