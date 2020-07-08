@@ -18,9 +18,9 @@ bool PlayGame(int Difficulty)
 {
     PrintIntroduction(Difficulty);
     //
-    const int CodeA = 4;
-    const int CodeB = 3;
-    const int CodeC = 2;
+    const int CodeA = rand() % (Difficulty + 3) + 1;
+    const int CodeB = rand() % (Difficulty + 3) + 1;
+    const int CodeC = rand() % (Difficulty + 3) + 1;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -64,7 +64,7 @@ int main()
     while (LevelDifficulty <= MaxLevel)
     {
         bool bLevelComplete = PlayGame(LevelDifficulty);
-        std::cin.clear(); // clears any errors
+        std::cin.clear();  // clears any errors
         std::cin.ignore(); // discards the buffer
 
         if (bLevelComplete)
