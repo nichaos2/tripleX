@@ -1,6 +1,6 @@
 #include <iostream>
 
-void PrintIntroduction()
+void PrintIntroduction(int Difficulty)
 {
     std::cout << " _                       _                     _            \n";
     std::cout << "(_)                     | |                   | |           \n";
@@ -10,13 +10,13 @@ void PrintIntroduction()
     std::cout << "|_||_| |_|| .__/  \\__,_| \\__|  \\___|\\___/  \\__,_| \\___||___/\n";
     std::cout << "          | |                                               \n";
     std::cout << "          |_| \n";
-    std::cout << "You are a secret agent brekaing into a secure server room...\n";
-    std::cout << "You need to enter the correct codes to continue...";
+    std::cout << "\n\nYou are a secret agent breaking into a level " << Difficulty;
+    std::cout << " level secure server room...\nYou need to enter the correct codes to continue...";
 }
 
-bool PlayGame()
+bool PlayGame(int Difficulty)
 {
-    PrintIntroduction();
+    PrintIntroduction(Difficulty);
     //
     const int CodeA = 4;
     const int CodeB = 3;
@@ -57,19 +57,23 @@ bool PlayGame()
         return false;
     }
     
+
 }
 int main()
 {
-    int n = 0;
-    while (n < 10)
+    int MaxLevel = 10;
+    int LevelDifficulty = 1;
+    while (LevelDifficulty <= MaxLevel)
     {
-        bool bLevelComplete = PlayGame();
-        //
-        std::cout << n;
-        n++;
-
+        bool bLevelComplete = PlayGame(LevelDifficulty);
         std::cin.clear(); // clears any errors
         std::cin.ignore(); // discards the buffer
+
+        if (bLevelComplete)
+        {
+            // increase the lvl
+            ++LevelDifficulty;
+        }
     }
     return 0;
 }
