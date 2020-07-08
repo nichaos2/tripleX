@@ -1,3 +1,6 @@
 # obj or exe
 *.obj
 *.exe
+
+#
+.vscode/*
